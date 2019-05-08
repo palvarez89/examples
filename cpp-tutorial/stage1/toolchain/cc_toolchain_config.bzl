@@ -1,4 +1,40 @@
+load("@bazel_tools//tools/cpp:cc_toolchain_config_lib.bzl", "tool_path")
+
 def _impl(ctx):
+    tool_paths = [
+        tool_path(
+            name = "gcc",
+            path = "emcc.sh",
+        ),
+        tool_path(
+            name = "ld",
+            path = "emcc.sh",
+        ),
+        tool_path(
+            name = "ar",
+            path = "/bin/false",
+        ),
+        tool_path(
+            name = "cpp",
+            path = "/bin/false",
+        ),
+        tool_path(
+            name = "gcov",
+            path = "/bin/false",
+        ),
+        tool_path(
+            name = "nm",
+            path = "/bin/false",
+        ),
+        tool_path(
+            name = "objdump",
+            path = "/bin/false",
+        ),
+        tool_path(
+            name = "strip",
+            path = "/bin/false",
+        ),
+    ]
     return cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
         toolchain_identifier = "asmjs-toolchain",
@@ -9,6 +45,7 @@ def _impl(ctx):
         compiler = "emscripten",
         abi_version = "unknown",
         abi_libc_version = "unknown",
+        tool_paths = tool_paths,
     )
 
 cc_toolchain_config = rule(

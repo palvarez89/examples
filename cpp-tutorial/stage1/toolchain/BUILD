@@ -10,15 +10,23 @@ cc_toolchain_suite(
 
 filegroup(name = "empty")
 
+filegroup(
+    name = "all",
+    srcs = [
+        "emcc.sh",
+	"@fdsdk//:gcc",
+    ],
+)
+
 cc_toolchain(
     name = "asmjs_toolchain",
     toolchain_identifier = "asmjs-toolchain",
     toolchain_config = ":asmjs_toolchain_config",
-    all_files = ":empty",
-    compiler_files = ":empty",
+    all_files = ":all",
+    compiler_files = ":all",
     cpu = "asmjs",
     dwp_files = ":empty",
-    linker_files = ":empty",
+    linker_files = ":all",
     objcopy_files = ":empty",
     strip_files = ":empty",
     supports_param_files = 0,

@@ -61,9 +61,9 @@ def _impl(ctx):
                     flag_group(
                         flags = [
                             "-isystem",
-			    "external/fdsdk/usr/include/",
+			    "external/fdsdk/usr/include",
                             "-isystem",
-                            "external/emscripten_toolchain/system/include/libc",
+                            "external/fdsdk/usr/lib/gcc/x86_64-unknown-linux-gnu/8.3.0/include",
                         ],
                     ),
                 ],

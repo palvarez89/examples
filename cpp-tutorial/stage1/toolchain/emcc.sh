@@ -1,3 +1,3 @@
 #!/bin/bash
 set -euo pipefail
-/usr/bin/gcc "$@"
+external/fdsdk/usr/bin/gcc "$@"

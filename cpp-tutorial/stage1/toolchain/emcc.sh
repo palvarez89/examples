@@ -1,4 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-export LD_LIBRARY_PATH=external/fdsdk/usr/lib/x86_64-linux-gnu
-external/fdsdk/usr/bin/gcc "$@"
+
+FDSDK=external/fdsdk
+LD_LIBRARY_PATH=$FDSDK/usr/lib:$FDSDK/usr/lib64:$FDSDK/usr/lib/x86_64-linux-gnu exec -a gcc external/fdsdk/usr/bin/gcc "$@"
